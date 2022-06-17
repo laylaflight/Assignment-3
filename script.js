@@ -38,7 +38,9 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    numRows--;
+    refreshTable();
+    //alert("Clicked Remove Row"); // Replace this line with your code.
 }
 
 // Remove a column
