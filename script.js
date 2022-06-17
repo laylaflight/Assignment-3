@@ -7,7 +7,6 @@ function createTable(){
   const grid = document.getElementById("grid");
   for(let i = 0; i < numRows; i++){
     const trElement = document.createElement("tr");
-  
     for(let j = 0; j < numCols; j++){
       const tdElement = document.createElement("td");
       trElement.append(tdElement);
@@ -15,25 +14,26 @@ function createTable(){
     grid.append(trElement);
   }
 }
-  
 function clearTable(){
   const grid = document.getElementById("grid");
   grid.innerHTML = "";
 }
-  
+
 function refreshTable(){
-  clearTable();
-  createTable();
+    clearTable();
+    createTable();
 }
 
 // Add a row
 function addR() {
-    alert("Clicked Add Row"); // Replace this line with your code.
+    numRows++;
+    refreshTable();
+    //alert("Clicked Add Row"); // Replace this line with your code.
 }
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+    //alert("Clicked Add Col"); // Replace this line with your code.
 }
 
 // Remove a row
@@ -66,3 +66,5 @@ function fillAll(){
 function clearAll(){
     alert("Clicked Clear All"); // Replace this line with your code.
 }
+
+createTable();
