@@ -61,7 +61,11 @@ function fillU(){
 
 // Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+    //alert("Clicked Fill All"); // Replace this line with your code.
+	const cells = document.querySelectorAll("td");
+	for (const i of cells) {
+		i.style.backgroundColor = colorSelected;
+	}
 }
 
 // Clear all cells
