@@ -76,7 +76,11 @@ function fillAll(){
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+    //alert("Clicked Clear All"); // Replace this line with your code.
+	const cells = document.querySelectorAll("td");
+	for (const i of cells) {
+		i.style.backgroundColor = "white";
+	}
 }
 
 createTable();
