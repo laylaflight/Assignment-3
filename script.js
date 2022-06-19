@@ -56,7 +56,13 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    //alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+	const cells = document.querySelectorAll("td");
+	for (const i of cells) {
+		if (i.style.backgroundColor == "white") {
+			i.style.backgroundColor = colorSelected;
+		}
+	}
 }
 
 // Fill all cells
