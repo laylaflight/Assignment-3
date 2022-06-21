@@ -7,18 +7,41 @@ let colorSelected;
 function addR() {
     //alert("Clicked Add Row"); // Replace this line with your code.
     if (numCols == 0) numCols = 1;
-    let grid = document.getElementById("grid");
-    let row = grid.insertRow();
-    for (let i = 0; i < numCols; i++) {
-        row.insertCell();
-    }
-    numRows++;
-}
+     let grid = document.getElementById("grid");
+     let row = grid.insertRow();
+     for (let i = 0; i < numCols; i++) {
+         let cell = row.insertCell();
+         cell.onclick = function() { this.style.backgroundColor = colorSelected };
+     }
+     numRows++;
+ }
+
 
 // Add a column
 function addC() {
     //alert("Clicked Add Col"); // Replace this line with your code.
+<<<<<<< Updated upstream
 }
+=======
+    if (numRows == 0) addR();
+    let rows = document.querySelectorAll("tr");
+    for (const i of rows) {
+        let cell = i.insertCell();
+        cell.onclick = function() { this.style.backgroundColor = colorSelected };
+    }
+    numCols++;
+}
+
+// Remove a row
+function removeR() {
+        //alert("Clicked Remove Row"); // Replace this line with your code.
+        if (numRows == 0) return;
+        let grid = document.getElementById("grid");
+        grid.deleteRow(-1);
+        numRows--;
+        if (numRows == 0) numCols = 0;
+    }
+>>>>>>> Stashed changes
 
 // Remove a row
 function removeR() {
@@ -28,8 +51,19 @@ function removeR() {
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+
+  if (numCols == 0){
+    return;
+  }
+  if (numCols > 0) {
+      for (let i = 0; i < numRows; i++) {
+          grid.rows[i].deleteCell(numCols - 1);
+      }
+      numCols--;
+  }
+
 }
+
 
 // Set global variable for selected color
 function selectColor(){
