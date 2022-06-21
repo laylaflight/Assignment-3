@@ -3,31 +3,9 @@ let numRows = 0;
 let numCols = 0;
 let colorSelected; 
 
-function createTable(){
-  const grid = document.getElementById("grid");
-  for(let i = 0; i < numRows; i++){
-    const trElement = document.createElement("tr");
-    for(let j = 0; j < numCols; j++){
-      const tdElement = document.createElement("td");
-      trElement.append(tdElement);
-    }
-    grid.append(trElement);
-  }
-}
-function clearTable(){
-  const grid = document.getElementById("grid");
-  grid.innerHTML = "";
-}
-
-function refreshTable(){
-    clearTable();
-    createTable();
-}
-
 // Add a row
 function addR() {
     numRows++;
-    refreshTable();
     //alert("Clicked Add Row"); // Replace this line with your code.
 }
 
@@ -39,7 +17,6 @@ function addC() {
 // Remove a row
 function removeR() {
     numRows--;
-    refreshTable();
     //alert("Clicked Remove Row"); // Replace this line with your code.
 }
 
@@ -68,5 +45,3 @@ function fillAll(){
 function clearAll(){
     alert("Clicked Clear All"); // Replace this line with your code.
 }
-
-createTable();
