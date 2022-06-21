@@ -18,13 +18,23 @@ function addR() {
 // Add a column
 function addC() {
     //alert("Clicked Add Col"); // Replace this line with your code.
+    if (numRows == 0) addR();
+    let rows = document.querySelectorAll("tr");
+    for (const i of rows) {
+        i.insertCell();
+    }
+    numCols++;
 }
-
 // Remove a row
-function removeR() {
-    numRows--;
-    //alert("Clicked Remove Row"); // Replace this line with your code.
-}
+function removeR() { 
+        //alert("Clicked Remove Row"); // Replace this line with your code.
+        if (numRows == 0) return;
+        let grid = document.getElementById("grid");
+        grid.deleteRow(-1);
+        numRows--;
+        if (numRows == 0) numCols = 0;
+    }
+
 
 // Remove a column
 function removeC() {
