@@ -8,11 +8,12 @@ function addR() {
     //alert("Clicked Add Row"); // Replace this line with your code.
     if (numCols == 0) numCols = 1;
     let grid = document.getElementById("grid");
-    let row = grid.insertRow();
-    for (let i = 0; i < numCols; i++) {
-        row.insertCell();
-    }
-    numRows++;
+	let row = grid.insertRow();
+	for (let i = 0; i < numCols; i++) {
+		let cell = row.insertCell();
+		cell.onclick = function() { this.style.backgroundColor = colorSelected };
+	}
+	numRows++;
 }
 
 // Add a column
@@ -20,10 +21,11 @@ function addC() {
     //alert("Clicked Add Col"); // Replace this line with your code.
     if (numRows == 0) addR();
     let rows = document.querySelectorAll("tr");
-    for (const i of rows) {
-        i.insertCell();
-    }
-    numCols++;
+	for (const i of rows) {
+		let cell = i.insertCell();
+		cell.onclick = function() { this.style.backgroundColor = colorSelected };
+	}
+	numCols++;
 }
 // Remove a row
 function removeR() { 
@@ -52,7 +54,7 @@ function fillU(){
     //alert("Clicked Fill All Uncolored"); // Replace this line with your code.
 	const cells = document.querySelectorAll("td");
 	for (const i of cells) {
-		if (i.style.backgroundColor == "white") {
+		if (i.style.backgroundColor == "") {
 			i.style.backgroundColor = colorSelected;
 		}
 	}
