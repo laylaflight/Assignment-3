@@ -41,7 +41,7 @@ function removeR() {
 // Remove a column
 function removeC() {
   if (numCols == 0){
-    return;
+    numRows = 0;
   }
   if (numCols > 0) {
       for (let i = 0; i < numRows; i++) {
