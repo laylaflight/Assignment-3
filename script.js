@@ -38,7 +38,9 @@ function addC() {
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    numRows--;
+    refreshTable();
+    //alert("Clicked Remove Row"); // Replace this line with your code.
 }
 
 // Remove a column
@@ -54,17 +56,31 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    //alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+	const cells = document.querySelectorAll("td");
+	for (const i of cells) {
+		if (i.style.backgroundColor == "white") {
+			i.style.backgroundColor = colorSelected;
+		}
+	}
 }
 
 // Fill all cells
 function fillAll(){
-    alert("Clicked Fill All"); // Replace this line with your code.
+    //alert("Clicked Fill All"); // Replace this line with your code.
+	const cells = document.querySelectorAll("td");
+	for (const i of cells) {
+		i.style.backgroundColor = colorSelected;
+	}
 }
 
 // Clear all cells
 function clearAll(){
-    alert("Clicked Clear All"); // Replace this line with your code.
+    //alert("Clicked Clear All"); // Replace this line with your code.
+	const cells = document.querySelectorAll("td");
+	for (const i of cells) {
+		i.style.backgroundColor = "white";
+	}
 }
 
 createTable();
